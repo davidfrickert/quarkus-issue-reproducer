@@ -1,21 +1,21 @@
 package org.acme;
 
-import io.quarkus.test.junit.QuarkusTest;
-import org.junit.jupiter.api.Test;
-
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.is;
+
+import io.quarkus.test.junit.QuarkusTest;
+import io.quarkus.test.security.TestSecurity;
+import org.junit.jupiter.api.Test;
 
 @QuarkusTest
 public class GreetingResourceImplTest {
 
     @Test
+    @TestSecurity(user = "user", roles = {"a"})
     public void testHelloEndpoint() {
         given()
           .when().get("/hello")
           .then()
-             .statusCode(401)
-             .body(is("Hello from RESTEasy Reactive"));
+             .statusCode(403);
     }
 
 }
