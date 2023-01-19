@@ -1,6 +1,7 @@
 package org.acme;
 
 import io.quarkus.security.UnauthorizedException;
+import javax.enterprise.context.ApplicationScoped;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
-@RequestScoped
+@ApplicationScoped
 public class AuthenticationIdentity {
 
     private static final Logger log = LoggerFactory.getLogger(AuthenticationIdentity.class);
