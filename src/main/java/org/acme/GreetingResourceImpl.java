@@ -1,6 +1,7 @@
 package org.acme;
 
 import javax.annotation.security.RolesAllowed;
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -9,7 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 
-@RequestScoped
+@ApplicationScoped
 @Path("/hello")
 public class GreetingResourceImpl {
 
